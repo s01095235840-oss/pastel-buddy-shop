@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Cute pastel palette */
+    --background: 40 30% 97%;
+    --foreground: 240 10% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 25%;
+
+    /* Pastel Pink Primary */
+    --primary: 350 65% 78%;
+    --primary-foreground: 350 50% 25%;
+
+    /* Pastel Blue Secondary */
+    --secondary: 210 55% 82%;
+    --secondary-foreground: 210 40% 25%;
+
+    /* Lavender Muted */
+    --muted: 270 35% 92%;
+    --muted-foreground: 270 15% 45%;
+
+    /* Mint Accent */
+    --accent: 160 40% 82%;
+    --accent-foreground: 160 35% 25%;
+
+    --destructive: 0 70% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 25% 88%;
+    --input: 270 25% 88%;
+    --ring: 350 65% 78%;
+
+    --radius: 1.25rem;
+
+    /* Custom colors for the cute theme */
+    --cream: 40 30% 97%;
+    --lavender: 270 40% 88%;
+    --mint: 160 40% 82%;
+    --baby-blue: 210 55% 85%;
+    --blush: 350 55% 88%;
+    --peach: 25 60% 85%;
+
+    /* Gradients */
+    --gradient-cream: linear-gradient(135deg, hsl(40, 30%, 97%) 0%, hsl(270, 30%, 95%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(350, 60%, 92%) 0%, hsl(270, 50%, 92%) 50%, hsl(210, 50%, 92%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(270, 30%, 98%) 100%);
+    --gradient-button: linear-gradient(135deg, hsl(350, 65%, 78%) 0%, hsl(350, 60%, 72%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(270, 30%, 70%, 0.3);
+    --shadow-card: 0 8px 30px -8px hsl(270, 30%, 70%, 0.25);
+    --shadow-button: 0 6px 20px -4px hsl(350, 60%, 70%, 0.4);
+    --shadow-glow: 0 0 30px hsl(350, 60%, 85%, 0.5);
+
+    /* Sidebar - not used but keeping for compatibility */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 270 20% 12%;
+    --foreground: 270 10% 95%;
+
+    --card: 270 20% 15%;
+    --card-foreground: 270 10% 95%;
+
+    --popover: 270 20% 15%;
+    --popover-foreground: 270 10% 95%;
+
+    --primary: 350 55% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 45% 35%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 270 20% 20%;
+    --muted-foreground: 270 15% 65%;
+
+    --accent: 160 35% 35%;
+    --accent-foreground: 160 30% 95%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 25%;
+    --input: 270 20% 25%;
+    --ring: 350 55% 65%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Nunito', sans-serif;
+    background: var(--gradient-cream);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: var(--gradient-cream);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Jua', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-cute {
+    font-family: 'Jua', sans-serif;
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+/* Bear button animation */
+@keyframes bounce-soft {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-3deg);
+  }
+  75% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+}
+
+.animate-bounce-soft {
+  animation: bounce-soft 0.3s ease-in-out;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.5s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-sparkle {
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
