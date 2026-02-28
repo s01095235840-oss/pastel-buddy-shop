@@ -1,10 +1,7 @@
 import { loadTossPayments } from '@tosspayments/sdk';
 
-const CLIENT_KEY = import.meta.env.VITE_TOSS_CLIENT_KEY;
-
-if (!CLIENT_KEY) {
-  console.warn('VITE_TOSS_CLIENT_KEY 환경 변수가 설정되지 않았습니다. 결제 기능이 작동하지 않을 수 있습니다.');
-}
+// 토스페이먼츠 클라이언트 키 (하드코딩 - 테스트 키)
+const CLIENT_KEY = 'test_ck_KNbdOvk5rkWX19R4L5Knrn07xlzm';
 
 export interface PaymentInfo {
   amount: number;
@@ -20,10 +17,6 @@ export interface PaymentInfo {
  * 토스페이먼츠 결제 요청
  */
 export async function requestTossPayment(paymentInfo: PaymentInfo) {
-  if (!CLIENT_KEY) {
-    throw new Error('토스페이먼츠 클라이언트 키가 설정되지 않았습니다. VITE_TOSS_CLIENT_KEY 환경 변수를 확인해주세요.');
-  }
-
   try {
     const tossPayments = await loadTossPayments(CLIENT_KEY);
     

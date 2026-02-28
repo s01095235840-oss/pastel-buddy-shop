@@ -1,17 +1,9 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Supabase 설정 (하드코딩)
+const supabaseUrl = 'https://fyyywvbhktfolpibknnd.supabase.co';
+const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5eXl3dmJoa3Rmb2xwaWJrbm5kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgwMjUxNDcsImV4cCI6MjA4MzYwMTE0N30.ZKZIYpkykfOnYotflpiBRxAq1QWqmYRC3dRgT56wzeQ';
 
-// 환경 변수가 없어도 앱이 작동하도록 더미 클라이언트 생성
-let supabase: SupabaseClient;
-
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.warn('Supabase 환경 변수가 설정되지 않았습니다. 일부 기능이 제한될 수 있습니다.');
-  // 더미 클라이언트 생성 (실제로는 작동하지 않지만 에러를 방지)
-  supabase = createClient('https://placeholder.supabase.co', 'placeholder-key');
-} else {
-  supabase = createClient(supabaseUrl, supabaseAnonKey);
-}
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 export { supabase };
